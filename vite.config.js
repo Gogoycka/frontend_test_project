@@ -11,12 +11,11 @@ export default defineConfig({
     host: true,
     port:8000,
     proxy: {
-      '/api/hello': {
+      '/api/auth/signin': {
         target: 'http://localhost:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/^/hello/, '')
+        rewrite: (path) => path.replace(/^\/api/^/auth/^/signin/, '')
       },
     },
   },
-  plugins: [react()],
 })
